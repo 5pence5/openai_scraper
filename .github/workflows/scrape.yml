@@ -1,3 +1,18 @@
+  name: Commit and push
+  run: |-
+    # Remove Python cache files
+    find . -name "__pycache__" -type d -exec rm -rf {} +
+    find . -name "*.pyc" -delete
+    # Git configuration and commit
+    git config user.name "Automated"
+    git config user.email "actions@users.noreply.github.com"
+    git add -A
+    timestamp=$(date -u)
+    git commit -m "${timestamp}" || exit 0
+    git pull --rebase --strategy-option=ours
+    git push
+
+
 name: Scrape
 
 on:
@@ -37,3 +52,4 @@ jobs:
         git commit -m "${timestamp}" || exit 0
         git pull --rebase
         git push
+        
