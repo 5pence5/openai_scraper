@@ -13,8 +13,8 @@ class OpenAISpider(scrapy.Spider):
     ]
     
     custom_settings = {
-        'ROBOTSTXT_OBEY': True,
-        'USER_AGENT': 'OpenAI-Scraper (+https://github.com/yourusername/openai-scraper)',
+        'ROBOTSTXT_OBEY': False,
+        'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
     }
     
     def parse(self, response):
