@@ -1,8 +1,13 @@
 #!/bin/bash
 
+#!/bin/bash
+
 # Create data directory if it doesn't exist
 mkdir -p data
 
-# Run the Scrapy spider
-cd openai_scraper
-scrapy crawl openai
+# Print working directory for debugging
+echo "Current directory: $(pwd)"
+ls -la
+
+# Run scrapy from the root directory
+scrapy crawl openai -p openai_scraper
